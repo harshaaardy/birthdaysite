@@ -1,14 +1,201 @@
-// Smooth scrolling for navigation
-document.querySelectorAll('.navbar a').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
-        });
-    });
-});
+/* General Styles */
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    scroll-behavior: smooth;
+    background-color: #f7f7f7;
+    color: #333;
+}
 
-// Surprise Button Click Event
-document.querySelector('.surprise-btn').addEventListener('click', function() {
-    alert("Abhi, you are my most special person! Here's to an amazing year ahead! ❤️");
-});
+/* Full Page Sections */
+.section {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    text-align: center;
+    transition: all 0.5s ease-in-out;
+}
+
+/* Navigation Styles */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.navbar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.navbar li {
+    margin: 0 15px;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    padding: 15px 0;
+    display: block;
+    transition: color 0.3s;
+}
+
+.navbar a:hover {
+    color: #e91e63;
+}
+
+/* 1️⃣ Home Page - Romantic Birthday Theme */
+#home {
+    background: linear-gradient(135deg, #ff6b6b, #ffb6b9, #fad0c4);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* Stylish Happy Birthday Text */
+.birthday-text {
+    font-size: 4rem;
+    font-weight: bold;
+    background: linear-gradient(90deg, #ff004f, #ff7300, #ffcc00, #ff007f, #ff66cc);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: fadeInUp 1.5s ease-in-out;
+}
+
+/* Simple Text Fade In */
+@keyframes fadeInUp {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Floating Heart Animation */
+.floating-heart {
+    font-size: 3rem;
+    animation: floatHeart 3s infinite ease-in-out;
+}
+
+@keyframes floatHeart {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(0); }
+}
+
+/* Smooth Button */
+.start-button {
+    margin-top: 20px;
+    padding: 12px 24px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    background: #ff004f;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.start-button:hover {
+    background: #ff007f;
+    transform: scale(1.05);
+}
+
+/* 2️⃣ Photo Gallery */
+#gallery {
+    background-color: #fff;
+}
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+.gallery img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.gallery img:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 0px 20px rgba(255, 105, 180, 0.6);
+}
+
+/* 3️⃣ Special Message */
+#message {
+    background: linear-gradient(135deg, #ffe4e1, #ffdde1);
+    color: #d63384;
+    font-size: 1.2rem;
+    padding: 50px;
+    border-radius: 15px;
+    box-shadow: 0px 0px 20px rgba(255, 0, 127, 0.5);
+}
+
+/* 4️⃣ Flirty Wishes */
+#wishes {
+    background: linear-gradient(135deg, #ffcccc, #ff99cc, #ff66b2);
+}
+
+.wishes-list {
+    list-style: none;
+    padding: 0;
+}
+
+.wishes-list li {
+    background: rgba(255, 255, 255, 0.2);
+    margin: 10px 0;
+    padding: 15px;
+    border-radius: 10px;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+    transition: transform 0.3s;
+}
+
+.wishes-list li:hover {
+    transform: scale(1.05);
+}
+
+/* 5️⃣ Surprise Section */
+#surprise {
+    background: linear-gradient(135deg, #ff6b6b, #ffb6b9);
+    color: white;
+}
+
+#surpriseButton {
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    border: none;
+    background: #ff004f;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.3s;
+}
+
+#surpriseButton:hover {
+    background: #ff007f;
+    transform: scale(1.1);
+}
+
+.hidden {
+    display: none;
+}
